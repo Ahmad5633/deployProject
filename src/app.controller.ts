@@ -1,11 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
-@ApiTags('app')
-@Controller()
+@ApiTags('example')
+@Controller('example')
 export class AppController {
   @Get()
-  getHello(): string {
+  @ApiOperation({ summary: 'Get example' })
+  getExample(): string {
     return 'Hello World!';
   }
 }
